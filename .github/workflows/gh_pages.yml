@@ -1,7 +1,8 @@
-name: Github Pages
+name: Deploy Github Pages
 
 on:
   push:
+  workflow_dispatch:
   workflow_run:
     workflows: ['Fetch']
     types:
@@ -17,20 +18,23 @@ jobs:
     steps:
       - name: Set Timezone
         run: sudo timedatectl set-timezone "Asia/Shanghai"
-        
+
       - uses: actions/checkout@v4
-      
-      - name: Setup pnpm
-      - uses: pnpm/action-setup@v4
+
+      - uses: pnpm/action-setup@v3
+
       - name: Setup node
-      - uses: actions/setup-node@v4
+        uses: actions/setup-node@v4
         with:
           node-version: 20.x
           cache: pnpm
+
       - name: Install
         run: pnpm install
+
       - name: Build
         run: pnpm build
+
       - name: Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
