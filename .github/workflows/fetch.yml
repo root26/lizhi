@@ -18,8 +18,8 @@ jobs:
         id: fetch
         uses: yjl9903/fetch-captain@v0
         with:
-          roomid: '1921715402'
-          ruid: '3546853945641497'
+          roomid: '1757322059'
+          ruid: '3546722674412189'
           outDir: './data/'
           # sender: ${{ secrets.SENDER }}
           # sender_pass: ${{ secrets.SENDER_PASS }}
